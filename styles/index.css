@@ -1,0 +1,11 @@
+.back {
+  background-color: rgb(149, 190, 35);
+}
+
+
+@media screen and (max-width: 600px ) {
+  .back {
+    background-color: rgb(231, 54, 54);
+  }
+}
+
