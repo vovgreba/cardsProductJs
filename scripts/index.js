@@ -1,5 +1,7 @@
 const showProductBtn = document.querySelector('.show_product');
 const cardsProducts = document.querySelector('.cards_products');
+const cardsButtons = document.querySelector('.cards_buttons');
+const sortPrice = document.querySelector('.sort-price');
 
 
 
@@ -47,52 +49,98 @@ const productsArray = [
   }
 ]
 
+
 const showProduct = () => {
   
   const rootElement = document.createElement('div')
+  rootElement.className = 'cards_wrapper'
 
   productsArray.forEach(el => {
     const div = document.createElement('div');
     div.className = 'card_product';
   
-    
     if(el.image) {
 
-      const html = `<div class="card_images">
-      <img src="${el.image}" alt="bike">
-      </div>`;
-
+      const html = `<div class="card_images"><img src="${el.image}" alt="bike"></div>`;
       div.insertAdjacentHTML('beforeend', html);
+
     }
     
-    // if(el.name) {
-    //   arrayElements.push(`<h2 class="card_name">Велосипед взрослый <span>${el.name}</span></h2> `)
-    // }
+    if(el.name) {
 
-    // if(el.description) {
-    //   arrayElements.push(`<p class="card_desc">${el.description}</p>`)
-    // }
-    // if(el.rating && el.availability) {
-    //   arrayElements.push(`<div class="card_options">
-    //   <div class="card_rating">rating <span>${el.rating}</span></div>
-    //   <div class="card_availability">availability <span>${el.availability}</span> </div>
-    //   </div>`)
-    // }
-    // if(el.price) {
-    //   arrayElements.push(`<div class="card_options">
-    //   <div class="card_price">rating <span>${el.price}$</span></div>
-    //   <button class="card_price-btn" type="button">Купить</button>
-    //   </div>`)
-    // }
+      const html = (`<h2 class="card_name">Велосипед взрослый <span>${el.name}</span></h2> `)
+      div.insertAdjacentHTML('beforeend', html);
+      
+    }
+
+    if(el.description) {
+      const html = (`<p class="card_desc">${el.description}</p>`)
+      div.insertAdjacentHTML('beforeend', html);
+
+    }
+    if(el.rating && el.availability) {
+      const html = (`<div class="card_options">
+      <div class="card_rating">rating <span>${el.rating}</span></div>
+      <div class="card_availability">availability <span>${el.availability}</span> </div>
+      </div>`)
+      div.insertAdjacentHTML('beforeend', html);
+    }
+    if(el.price) {
+      const html = (`<div class="card_options">
+      <div class="card_price">rating <span>${el.price}$</span></div>
+      <button class="card_price-btn" type="button">Купить</button>
+      </div>`)
+      div.insertAdjacentHTML('beforeend', html);
+    }
     rootElement.appendChild(div);
   })
   cardsProducts.appendChild(rootElement);
 }
+const checkElementsOnPage = nodeEl => {
+  for(let el of nodeEl) {
+    if(el.className === 'cards_wrapper') {
+      el.remove()
+    }
+  }
+}
+
+const getSortCardProductByPrice = (event) => {
+  checkElementsOnPage(cardsProducts.children)
+
+  if(event === 'От меньшего к большему') {
+    productsArray.sort((a,b) => {
+      if(a.price > b.price) {
+        return 1;
+      }
+      if(a.price < b.price) {
+        return -1;
+      }
+    })
+  }
+  if(event === 'От большего к меньшему') {
+    productsArray.sort((a,b) => {
+      if(a.price > b.price) {
+        return -1;
+      }
+      if(a.price < b.price) {
+        return 1;
+      }
+  })
+  
+  }
+  showProduct();
+}
 
 
 
-
+sortPrice.addEventListener('change', ev => {
+  getSortCardProductByPrice(ev.target.value)
+  
+})
 
 showProductBtn.addEventListener('click', () => {
   showProduct();
+  
 })
+
+

@@ -8,62 +8,78 @@
 }
 .container {
   max-width: 1200px;
-  padding: 0 15px;
   margin: 0 auto;
 }
 
 .cards_products {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
   background-color: rgb(76, 172, 236);
-  padding: 20px;
+  
+  .show_product, .sort-price {
+    margin: 10px 0 10px 10px;
+    padding: 5px 16px;
+    border-radius: 6px;
+    background-color: red;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all .5s linear;
+    &:hover {
+      color: rgb(233, 220, 220);
+      background-color: rgb(184, 12, 12);
+    }
+  }
 }
-.card_product {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  background-color: #fff;
-  max-width: 200px;
-  padding: 18px 19px;
-  box-shadow: 10px 10px 40px rgba(67, 64, 64, 0.25);
-  border-radius: 20px;
-  .card_images {
-    border-radius: 20px;
-  }
-  .card_name {
-    margin: 20px 0;
-    font-weight: 600;
+.cards_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px 20px;
+  gap: 20px;
+  .card_product {
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    line-height: 19px;
-  }
-  .card_desc {
-    font-size: 12px;
-    line-height: 16px;
-    margin-bottom: 20px;
-  }
-  .card_options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    button {
-      font-weight: 700;
-      padding: 6px 18px;
-      border: none;
-      background-color: #2196f3;
-      color: #fff;
-      
+    font-weight: 300;
+    background-color: #fff;
+    max-width: 200px;
+    padding: 18px 19px;
+    box-shadow: 10px 10px 40px rgba(67, 64, 64, 0.25);
+    border-radius: 20px;
+    .card_images {
+      border-radius: 20px;
     }
-  }
-  .card_rating, .card_availability, .card_price  {
-    font-size: 16px;
-    font-weight: 700;
-    span {
+    .card_name {
+      margin: 20px 0;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 19px;
+    }
+    .card_desc {
+      font-size: 12px;
+      line-height: 16px;
+      margin-bottom: 20px;
+    }
+    .card_options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        font-weight: 700;
+        padding: 6px 18px;
+        border: none;
+        background-color: #2196f3;
+        color: #fff;
+        
+      }
+    }
+    .card_rating, .card_availability, .card_price  {
       font-size: 16px;
-      font-weight: 300;
-      display: block;
-      text-align: center;
+      font-weight: 700;
+      span {
+        font-size: 16px;
+        font-weight: 300;
+        display: block;
+        text-align: center;
+      }
     }
+  
   }
-
 }
