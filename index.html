@@ -15,10 +15,16 @@
         <div class="cards_products">
             <div class="cards_buttons">
                 <button class="show_product">Show product</button>
-                <select class="sort-price" >
-                    <option value="От меньшего к большему">Фильтр по цене:</option>
-                    <option value="От меньшего к большему">От меньшего к большему</option>
+                <select class="sort-filter" data-price="filter">
+                    <option>Фильтр:</option>
+                    <option value="От меньшего к большему" >От меньшего к большему</option>
                     <option value="От большего к меньшему">От большего к меньшему</option>
+                </select>
+                <select class="sort">
+                    <option>Фильтр:</option>
+                    <option value="rating" data-rating="rating">По рейтингу</option>
+                    <option value="availability" data-availability="availability">По количеству товара на складе</option>
+                    <option value="price" data-price="price">По цене</option>
                 </select>
             </div>
         </div>

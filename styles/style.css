@@ -13,7 +13,7 @@
 .cards_products {
   background-color: rgb(76, 172, 236);
 }
-.cards_products .show_product, .cards_products .sort-price {
+.cards_products .show_product, .cards_products .sort-filter, .cards_products .sort {
   margin: 10px 0 10px 10px;
   padding: 5px 16px;
   border-radius: 6px;
@@ -23,7 +23,7 @@
   cursor: pointer;
   transition: all 0.5s linear;
 }
-.cards_products .show_product:hover, .cards_products .sort-price:hover {
+.cards_products .show_product:hover, .cards_products .sort-filter:hover, .cards_products .sort:hover {
   color: rgb(233, 220, 220);
   background-color: rgb(184, 12, 12);
 }
