@@ -143,24 +143,34 @@ const sortArray = (event, key) => {
 const getSortCardProduct = (event) => {
 
   checkElementsOnPage(cardsProducts.children);
-  
+
   sort.addEventListener('change', ev => {
     let value = ev.target.value;
     getSortCardProductByFilter(event, value);
   })
+
+  sortFilter.addEventListener('change', ev => {
+    let value = ev.target.value;
+    getSortCardProductByFilter(value, event);
   
+  })
 }
 
 const getSortCardProductByFilter = (event, value) => {
   
   checkElementsOnPage(cardsProducts.children);
+  
+  sortArray(event, sort.value);
 
-  for(let el of sort.children) {
-    sortArray(event, el.dataset[value]);
-    
-  }
   showProduct();
 }
+
+
+sort.addEventListener('change', ev => {
+  let value = ev.target.value;
+  getSortCardProduct(value);
+  
+});
 
 sortFilter.addEventListener('change', ev => {
   let value = ev.target.value;
@@ -168,8 +178,6 @@ sortFilter.addEventListener('change', ev => {
 
 })
 
-showProductBtn.addEventListener('click', () => {
-  showProduct();
-})
+showProductBtn.addEventListener('click', showProduct);
 
 
